@@ -37,10 +37,10 @@
             color: white;
         }
 
-        #counter {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #cc0066;
+        .gif-container img {
+            width: 200px;
+            margin: 15px;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -51,8 +51,35 @@
     <button id="yesBtn">Yes 💕</button>
     <button id="noBtn">No 😢</button>
 
-    <div id="counter"></div>
-
     <script>
         const noBtn = document.getElementById("noBtn");
         const yesBtn = document.getElementById("yesBtn");
+
+        // Make No button run away
+        noBtn.addEventListener("mouseover", function() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        });
+
+        // When Yes is clicked
+        yesBtn.addEventListener("click", function() {
+            document.body.innerHTML = `
+                <h1 style="color:#ff4d88; margin-top:50px;">
+                    🎉 CONGRATULATIONS REA!!! 💖🐻
+                </h1>
+                <p style="font-size:22px;">
+                    You are officially my Valentine! 💕
+                </p>
+                <div class="gif-container">
+                    <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+                    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+                    <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+                </div>
+            `;
+        });
+    </script>
+
+</body>
+</html>
